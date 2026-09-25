@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-playfair: Georgia, "Times New Roman", "Playfair Display", serif;
+  --font-jakarta: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-50 text-ink-900 antialiased;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.25);
+}
+
+/* ---------- Luxury utility classes ---------- */
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/60 shadow-glass;
+}
+
+.glass-dark {
+  background: rgba(11, 16, 48, 0.55);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-brand-600 via-brand-500 to-gold-500 bg-clip-text text-transparent;
+}
+
+.text-gradient-gold {
+  @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent;
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba(99, 102, 241, 0.28), transparent 60%),
+    radial-gradient(50rem 28rem at -10% 20%, rgba(245, 158, 11, 0.18), transparent 55%),
+    radial-gradient(40rem 26rem at 50% 110%, rgba(14, 165, 233, 0.20), transparent 60%),
+    linear-gradient(180deg, #070a20 0%, #0b1030 55%, #111638 100%);
+  background-size: 180% 180%;
+  animation: meshShift 22s ease-in-out infinite alternate;
+}
+
+@keyframes meshShift {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Dotted texture for light sections */
+.bg-dotted {
+  background-image: radial-gradient(rgba(79, 70, 229, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Marquee edge fades + hover pause */
+.marquee-fade {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.card-3d {
+  @apply transition-all duration-300;
+  transform-style: preserve-3d;
+}
+.card-3d:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-3deg) scale(1.02);
+  @apply shadow-luxe-lg;
+}
+
+.btn-3d {
+  @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 font-semibold text-white transition-all duration-200;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #818cf8 100%);
+  box-shadow: 0 6px 0 #312e81, 0 14px 28px rgba(49, 46, 129, 0.35);
+  transform: translateY(0);
+}
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #312e81, 0 18px 34px rgba(49, 46, 129, 0.4);
+}
+.btn-3d:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #312e81, 0 8px 16px rgba(49, 46, 129, 0.35);
+}
+
+.btn-gold-3d {
+  @apply relative inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3 font-semibold text-ink-900 transition-all duration-200;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%);
+  box-shadow: 0 6px 0 #92400e, 0 14px 28px rgba(146, 64, 14, 0.35);
+}
+.btn-gold-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #92400e, 0 18px 34px rgba(146, 64, 14, 0.4);
+}
+.btn-gold-3d:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #92400e, 0 8px 16px rgba(146, 64, 14, 0.35);
+}
+
+.chip {
+  @apply inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold;
+}
+
+.input-luxe {
+  @apply w-full rounded-xl border border-ink-100 bg-white px-4 py-3 text-sm outline-none transition-all placeholder:text-ink-900/35 focus:border-brand-400 focus:ring-4 focus:ring-brand-100;
+}
+
+.section-pad {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #e0e7ff 25%, #ffffff 50%, #e0e7ff 75%);
+  background-size: 700px 100%;
+  @apply animate-shimmer bg-clip-text text-transparent;
+}
+
+.divider-glow {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), rgba(245, 158, 11, 0.6), transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #eceef7;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #4f46e5);
+  border-radius: 8px;
+}
+
+/* Markdown-ish content */
+.prose-chat p {
+  @apply mb-2;
+}
+.prose-chat strong {
+  @apply font-semibold text-brand-700;
+}
